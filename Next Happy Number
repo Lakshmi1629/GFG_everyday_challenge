@@ -1,0 +1,32 @@
+class Solution{
+
+static boolean isHappy(int N)
+{
+    if(N==1 || N==7)
+    {
+        return true;
+    }
+     if(N==2 || N==4 || N==8 || N==3 || N==9 || N==5 || N==6)
+     {
+         return false;
+     }
+        int n=N;
+        int rem=0,sum=0;
+        while(n>0)
+        {
+            rem=n%10;
+            sum+=rem*rem;
+            n=n/10;
+        }
+      return isHappy(sum);
+    }
+    
+    static int nextHappy(int N){
+        // code here
+        int num=N+1;
+        while(isHappy(num)!=true)
+        num++;
+        
+        return num;
+    }
+}
